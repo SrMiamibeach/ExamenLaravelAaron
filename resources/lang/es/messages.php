@@ -11,7 +11,7 @@ return [
     | The following language lines are used in the main app.
     |
     */
-    'main_title' => 'Escribe tu nombre',
+    'main_title' => 'Aaron',
     'main_text'  => 'Bienvenido a la agencia de vuelos MacFly',
     'exam' => 'EXAMEN',
     'administration' => 'Administración',

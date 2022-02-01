@@ -63,7 +63,7 @@
 
           <div class="links">
               <a href="/admin">@lang('messages.administration')</a>
-              <a href="#">@lang('messages.flight_plane')</a>
+              <a href="/asignar">@lang('messages.flight_plane')</a>
               <a href="/">@lang('messages.future_flights')</a>
               <a href="/">@lang('messages.middleware')</a>
           </div>

@@ -8,7 +8,14 @@ use App\Models\Flight;
 class UserController extends Controller
 {
     public function index(){
-        $flights = Flight::all();
-        return view('administracion', ['flights' => $flights]);
+
+        $rol = auth()->user()->rol;
+        if($rol == "admin"){
+            $flights = Flight::all();
+            return view('administracion', ['flights' => $flights]);
+        }else{
+            return redirect()->back();
+        }
+        
     }
 }

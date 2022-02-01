@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class airplane extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'maker',
+        'seat'
+    ];
+    public function flights()
+    {
+        return $this->hasMany(Flight::class);
+    }
 }

@@ -22,3 +22,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/admin', [App\Http\Controllers\UserController::class,'index'])->name('admin');
 
+Route::get('/asignar', [App\Http\Controllers\FlightsController::class,'index'])->name('asignar');
+
+Route::post('/asignar/store', [App\Http\Controllers\FlightsController::class,'store'])->name('asignar.store');
+
+Route::delete('/remove/{id}', [App\Http\Controllers\FlightsController::class,'destroy'])->name('asignar.remove');

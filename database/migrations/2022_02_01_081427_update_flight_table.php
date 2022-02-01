@@ -27,6 +27,7 @@ class UpdateFlightTable extends Migration
     public function down()
     {
         Schema::table('flights', function (Blueprint $table) {
+            $table->dropForeign('airplane_id');
             $table->dropColumn('airplane_id');
             
         });
