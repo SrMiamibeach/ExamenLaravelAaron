@@ -39,14 +39,22 @@ class FlightsController extends Controller
         $nAsientosReservados = $request->reserva;
         $flight = Flight::find($id);
         $avaliable_seats = $flight->available_seats;
-
-        if ($nAsientosReservados > $flight->available_seats) {
-            return redirect()->back();
-        } else {
-            $flight->users()->attach(auth()->user()->id, ['num_plazas' => $nAsientosReservados]);
-            $flight->available_seats =$avaliable_seats-$nAsientosReservados;
-            $flight->save();
-            return redirect()->back();
+        foreach($flight->users as $user){
+            if($user->pivot->user_id == auth()->user()->id){
+                $flight->available_seats =$avaliable_seats + $user->pivot->num_plazas;
+                $flight->save();
+                $avaliable_seats = $flight->available_seats;
+                $flight->users()->detach(auth()->user()->id);
+                $flight->users()->attach(auth()->user()->id, ['num_plazas' => $nAsientosReservados]);
+                $flight->available_seats =$avaliable_seats-$nAsientosReservados;
+                $flight->save();
+                return redirect()->back();
+            }
         }
+        $flight->users()->attach(auth()->user()->id, ['num_plazas' => $nAsientosReservados]);
+        $flight->available_seats =$avaliable_seats-$nAsientosReservados;
+        $flight->save();
+        return redirect()->back();
+        
     }
 }
