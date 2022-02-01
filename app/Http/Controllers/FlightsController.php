@@ -24,4 +24,8 @@ class FlightsController extends Controller
         $flight->airplane()->delete();
         return redirect('/asignar');
     }
+    public function show(){
+        $flights = Flight::where('date', '>','2022/02/01')->orderBy('date')->get();
+        return view('pending',['flights' => $flights]);
+    }
 }
