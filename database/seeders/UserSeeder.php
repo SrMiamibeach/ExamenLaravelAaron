@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'name' => "admin",
             'email' => "admin@zubirimanteo.com",
             'password' => bcrypt("password"),
+            'rol' => 'admin'
         ]);
 
         $firstNames = ['Oliver', 'Mary', 'Harry', 'Jane', 'Noah', 'Emily',
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
             'male',
             'female',
         );
+        
 
         for ($i = 0; $i < 10; $i++) {
 
@@ -44,6 +46,7 @@ class UserSeeder extends Seeder
                 'gender' => $gender,
                 'email' => $firstNames[$randomName] . $lastnames[$randomLastName] . $i . "@zubirimanteo.com",
                 'password' => bcrypt("password"),
+                'rol' => 'user'
             ]);
         }
 
