@@ -3,6 +3,7 @@
 @section('content')
 <form method="POST" action="/asignar/store">
     @csrf
+    @method('put')
     <span>Vuelos</span>
     <select name="flights">
         @foreach($flights as $flight)

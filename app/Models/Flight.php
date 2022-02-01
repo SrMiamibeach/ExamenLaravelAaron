@@ -19,4 +19,8 @@ class Flight extends Model
     {
         return $this->belongsTo(airplane::class);
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withPivot('num_plazas')->withTimestamps();
+    }
 }

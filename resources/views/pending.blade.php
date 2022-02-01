@@ -15,9 +15,10 @@
         <td>{{$flight->date}}</td>
         <td>{{$flight->origin}}</td>
         <td>{{$flight->destiny}}</td>
-        <form >
+        <form method="POST" action="/pending/{{$flight->id}}">
+            @csrf
             <td><input type="text" name="reserva" placeholder="Plazas a reservar"/></td>
-            <td><input type="submit" value="reserva"/></td>
+            <td><input type="submit" value="reservar"/></td>
         </form>
     </tr>
     @endforeach

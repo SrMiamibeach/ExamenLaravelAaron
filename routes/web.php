@@ -24,8 +24,10 @@ Route::get('/admin', [App\Http\Controllers\UserController::class,'index'])->name
 
 Route::get('/asignar', [App\Http\Controllers\FlightsController::class,'index'])->name('flight.asignar');
 
-Route::post('/asignar/store', [App\Http\Controllers\FlightsController::class,'store'])->name('flight.store');
+Route::put('/asignar/store', [App\Http\Controllers\FlightsController::class,'update'])->name('flight.store');
 
 Route::delete('/remove/{id}', [App\Http\Controllers\FlightsController::class,'destroy'])->name('flight.remove');
 
-Route::get('/pending', [App\Http\Controllers\FlightsController::class,'show'])->name('flight.pending');
+Route::get('/pending', [App\Http\Controllers\FlightsController::class,'create'])->name('flight.pending');
+
+Route::post('/pending/{id}', [App\Http\Controllers\FlightsController::class,'store'])->name('flight.pending');
